@@ -70,9 +70,7 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-in-left">
             <span className="text-foreground">Hi, I'm </span>
-            <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-green bg-clip-text text-transparent animate-glow-pulse">
-              John Doe
-            </span>
+            <span className="text-foreground">John Doe</span>
           </h1>
           
           {/* Animated Role */}

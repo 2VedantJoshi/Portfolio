@@ -22,12 +22,12 @@ const Skills = () => {
       icon: Code2,
       color: "neon-blue",
       skills: [
-        { name: "React.js", level: 95, icon: "⚛️" },
-        { name: "TypeScript", level: 90, icon: "🔷" },
-        { name: "Next.js", level: 88, icon: "▲" },
-        { name: "Tailwind CSS", level: 92, icon: "🎨" },
-        { name: "Framer Motion", level: 85, icon: "🎭" },
-        { name: "Redux Toolkit", level: 87, icon: "🔄" }
+        { name: "React.js", icon: "⚛️" },
+        { name: "TypeScript", icon: "🔷" },
+        { name: "Next.js", icon: "▲" },
+        { name: "Tailwind CSS", icon: "🎨" },
+        { name: "Framer Motion", icon: "🎭" },
+        { name: "Redux Toolkit", icon: "🔄" }
       ]
     },
     backend: {
@@ -35,12 +35,12 @@ const Skills = () => {
       icon: Server,
       color: "neon-purple",
       skills: [
-        { name: "Node.js", level: 90, icon: "🟢" },
-        { name: "Express.js", level: 88, icon: "🚀" },
-        { name: "Python", level: 82, icon: "🐍" },
-        { name: "GraphQL", level: 80, icon: "🔗" },
-        { name: "REST APIs", level: 93, icon: "🌐" },
-        { name: "Socket.io", level: 85, icon: "⚡" }
+        { name: "Node.js", icon: "🟢" },
+        { name: "Express.js", icon: "🚀" },
+        { name: "Python", icon: "🐍" },
+        { name: "GraphQL", icon: "🔗" },
+        { name: "REST APIs", icon: "🌐" },
+        { name: "Socket.io", icon: "⚡" }
       ]
     },
     database: {
@@ -48,12 +48,12 @@ const Skills = () => {
       icon: Database,
       color: "neon-green",
       skills: [
-        { name: "MongoDB", level: 88, icon: "🍃" },
-        { name: "PostgreSQL", level: 85, icon: "🐘" },
-        { name: "AWS", level: 80, icon: "☁️" },
-        { name: "Docker", level: 83, icon: "🐳" },
-        { name: "Redis", level: 78, icon: "🔴" },
-        { name: "Firebase", level: 87, icon: "🔥" }
+        { name: "MongoDB", icon: "🍃" },
+        { name: "PostgreSQL", icon: "🐘" },
+        { name: "AWS", icon: "☁️" },
+        { name: "Docker", icon: "🐳" },
+        { name: "Redis", icon: "🔴" },
+        { name: "Firebase", icon: "🔥" }
       ]
     },
     tools: {
@@ -61,12 +61,12 @@ const Skills = () => {
       icon: GitBranch,
       color: "neon-blue",
       skills: [
-        { name: "Git & GitHub", level: 95, icon: "🐙" },
-        { name: "VS Code", level: 98, icon: "💙" },
-        { name: "Webpack", level: 80, icon: "📦" },
-        { name: "Jest", level: 85, icon: "🃏" },
-        { name: "CI/CD", level: 82, icon: "🔄" },
-        { name: "Figma", level: 75, icon: "🎨" }
+        { name: "Git & GitHub", icon: "🐙" },
+        { name: "VS Code", icon: "💙" },
+        { name: "Webpack", icon: "📦" },
+        { name: "Jest", icon: "🃏" },
+        { name: "CI/CD", icon: "🔄" },
+        { name: "Figma", icon: "🎨" }
       ]
     }
   };
@@ -117,29 +117,11 @@ const Skills = () => {
               className="group bg-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border hover:border-neon-blue/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 card-3d animate-scale-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center">
-                  <span className="text-2xl mr-3">{skill.icon}</span>
-                  <h3 className="font-semibold text-foreground group-hover:text-neon-blue transition-colors duration-300">
-                    {skill.name}
-                  </h3>
-                </div>
-                <span className={`text-${skillCategories[activeCategory as keyof typeof skillCategories].color} font-bold text-lg`}>
-                  {skill.level}%
-                </span>
-              </div>
-              
-              {/* Progress Bar */}
-              <div className="w-full bg-muted rounded-full h-3 overflow-hidden mb-2">
-                <div 
-                  className={`h-full bg-gradient-to-r from-${skillCategories[activeCategory as keyof typeof skillCategories].color} to-${skillCategories[activeCategory as keyof typeof skillCategories].color}/70 rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
-                  style={{ 
-                    width: `${skill.level}%`,
-                    animationDelay: `${index * 200}ms`
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
-                </div>
+              <div className="flex items-center">
+                <span className="text-2xl mr-3">{skill.icon}</span>
+                <h3 className="font-semibold text-foreground group-hover:text-neon-blue transition-colors duration-300">
+                  {skill.name}
+                </h3>
               </div>
             </div>
           ))}
