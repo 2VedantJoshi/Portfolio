@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Download, Github, Linkedin, Mail, Code, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -35,7 +34,7 @@ const Hero = () => {
     // Create a dummy CV download - in real app, you'd have an actual CV file
     const link = document.createElement('a');
     link.href = '#'; // Replace with actual CV URL
-    link.download = 'John_Doe_CV.pdf';
+    link.download = 'Vedant_Joshi_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -60,17 +59,10 @@ const Hero = () => {
       
       <div className="text-center z-10 px-4 max-w-5xl mx-auto">
         <div className="animate-fade-in">
-          {/* Welcome Badge */}
-          <div className="inline-flex items-center justify-center mb-6 px-4 py-2 bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 rounded-full border border-neon-blue/30 backdrop-blur-sm animate-scale-in">
-            <Sparkles className="text-neon-blue mr-2 animate-pulse" size={16} />
-            <span className="text-sm font-medium text-foreground">Welcome to my digital world</span>
-            <Code className="text-neon-green ml-2 animate-pulse" size={16} />
-          </div>
-          
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-in-left">
             <span className="text-foreground">Hi, I'm </span>
-            <span className="text-foreground">John Doe</span>
+            <span className="text-foreground">Vedant Joshi</span>
           </h1>
           
           {/* Animated Role */}

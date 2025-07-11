@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="text-center">
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              John Doe
+              Vedant Joshi
             </h3>
             <p className="text-gray-400 max-w-md mx-auto">
               Creating beautiful digital experiences through innovative web development.
@@ -39,7 +39,7 @@ const Footer = () => {
           
           <div className="border-t border-gray-800 pt-8">
             <p className="text-gray-400 flex items-center justify-center gap-2">
-              Made with <Heart size={16} className="text-red-500 animate-pulse" /> by John Doe
+              Made with <Heart size={16} className="text-red-500 animate-pulse" /> by Vedant Joshi
             </p>
             <p className="text-gray-500 text-sm mt-2">
               © {currentYear} All rights reserved.
