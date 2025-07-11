@@ -1,96 +1,144 @@
 
 import { useState, useEffect } from "react";
-import { ChevronDown, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ChevronDown, Download, Github, Linkedin, Mail, Code, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Creative Developer";
+  const [currentRole, setCurrentRole] = useState(0);
+  const roles = ["Full-Stack Developer", "React Specialist", "Node.js Expert", "UI/UX Enthusiast"];
   
   useEffect(() => {
     let i = 0;
+    const currentText = roles[currentRole];
     const timer = setInterval(() => {
-      if (i < fullText.length) {
-        setDisplayText(fullText.slice(0, i + 1));
+      if (i < currentText.length) {
+        setDisplayText(currentText.slice(0, i + 1));
         i++;
       } else {
+        setTimeout(() => {
+          setCurrentRole((prev) => (prev + 1) % roles.length);
+          setDisplayText("");
+        }, 2000);
         clearInterval(timer);
       }
     }, 100);
     
     return () => clearInterval(timer);
-  }, []);
+  }, [currentRole]);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const downloadCV = () => {
+    // Create a dummy CV download - in real app, you'd have an actual CV file
+    const link = document.createElement('a');
+    link.href = '#'; // Replace with actual CV URL
+    link.download = 'John_Doe_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <section className="min-h-screen bg-gradient-to-br from-primary via-primary/90 to-accent flex items-center justify-center relative overflow-hidden">
-      {/* Enhanced animated background elements */}
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-accent/30 to-secondary/30 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-secondary/30 to-accent/30 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-muted/20 to-accent/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
+        {/* Floating Particles */}
+        <div className="absolute top-20 left-20 w-2 h-2 bg-neon-blue rounded-full animate-float opacity-60"></div>
+        <div className="absolute top-40 right-32 w-1 h-1 bg-neon-purple rounded-full animate-ping"></div>
+        <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-neon-green rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-20 w-2 h-2 bg-neon-blue rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 right-1/3 w-1 h-1 bg-neon-purple rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
         
-        {/* Floating particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-accent rounded-full animate-bounce animation-delay-500"></div>
-        <div className="absolute top-40 right-32 w-1 h-1 bg-secondary rounded-full animate-ping animation-delay-1000"></div>
-        <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-muted rounded-full animate-pulse animation-delay-1500"></div>
-        <div className="absolute top-1/3 right-20 w-2 h-2 bg-accent rounded-full animate-bounce animation-delay-2000"></div>
+        {/* Gradient Orbs */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-br from-neon-purple/20 to-neon-green/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-neon-green/10 to-neon-blue/10 rounded-full blur-2xl animate-rotate-slow"></div>
       </div>
       
-      <div className="text-center z-10 px-4 max-w-4xl mx-auto">
+      <div className="text-center z-10 px-4 max-w-5xl mx-auto">
         <div className="animate-fade-in">
-          <div className="flex items-center justify-center mb-6 animate-scale-in animation-delay-500">
-            <Sparkles className="text-accent mr-2 animate-pulse" size={24} />
-            <span className="text-primary-foreground/80 font-medium">Welcome to my portfolio</span>
-            <Sparkles className="text-accent ml-2 animate-pulse animation-delay-1000" size={24} />
+          {/* Welcome Badge */}
+          <div className="inline-flex items-center justify-center mb-6 px-4 py-2 bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 rounded-full border border-neon-blue/30 backdrop-blur-sm animate-scale-in">
+            <Sparkles className="text-neon-blue mr-2 animate-pulse" size={16} />
+            <span className="text-sm font-medium text-foreground">Welcome to my digital world</span>
+            <Code className="text-neon-green ml-2 animate-pulse" size={16} />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-4 animate-scale-in">
-            John <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary animate-pulse">Doe</span>
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-in-left">
+            <span className="text-foreground">Hi, I'm </span>
+            <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-green bg-clip-text text-transparent animate-glow-pulse">
+              John Doe
+            </span>
           </h1>
           
-          <div className="text-2xl md:text-3xl text-primary-foreground/90 mb-8 h-12 flex items-center justify-center">
-            <span className="border-r-2 border-accent pr-2 animate-pulse">
+          {/* Animated Role */}
+          <div className="text-xl md:text-3xl lg:text-4xl text-muted-foreground mb-8 h-16 flex items-center justify-center animate-slide-in-right">
+            <span className="neon-text-blue font-semibold">
               {displayText}
+              <span className="animate-ping">|</span>
             </span>
           </div>
           
-          <p className="text-lg text-primary-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in animation-delay-1000">
-            I craft beautiful digital experiences through innovative web development, 
-            combining creativity with cutting-edge technology to bring ideas to life.
+          {/* Description */}
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in opacity-0" style={{ animationDelay: '0.5s' }}>
+            I craft exceptional digital experiences through innovative web development, 
+            combining cutting-edge technology with creative problem-solving to bring ideas to life.
           </p>
         </div>
         
-        <div className="flex justify-center space-x-8 mb-16 animate-fade-in animation-delay-1500">
-          <a href="#" className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent to-secondary rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300 animate-pulse"></div>
-            <div className="relative bg-primary-foreground/10 backdrop-blur-sm p-4 rounded-full border border-primary-foreground/20 group-hover:border-accent/50 transition-all duration-300 transform group-hover:scale-110 group-hover:-translate-y-2">
-              <Github className="text-primary-foreground group-hover:text-accent transition-colors duration-300" size={24} />
-            </div>
-          </a>
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-scale-in opacity-0" style={{ animationDelay: '0.8s' }}>
+          <Button
+            onClick={downloadCV}
+            size="lg"
+            className="bg-gradient-to-r from-neon-blue to-neon-purple hover:from-neon-purple hover:to-neon-green transition-all duration-300 neon-glow-blue text-lg px-8 py-4 transform hover:scale-105"
+          >
+            <Download className="w-5 h-5 mr-2" />
+            Download CV
+          </Button>
           
-          <a href="#" className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary to-accent rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300 animate-pulse animation-delay-500"></div>
-            <div className="relative bg-primary-foreground/10 backdrop-blur-sm p-4 rounded-full border border-primary-foreground/20 group-hover:border-secondary/50 transition-all duration-300 transform group-hover:scale-110 group-hover:-translate-y-2">
-              <Linkedin className="text-primary-foreground group-hover:text-secondary transition-colors duration-300" size={24} />
-            </div>
-          </a>
-          
-          <a href="#" className="group relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent to-secondary rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300 animate-pulse animation-delay-1000"></div>
-            <div className="relative bg-primary-foreground/10 backdrop-blur-sm p-4 rounded-full border border-primary-foreground/20 group-hover:border-accent/50 transition-all duration-300 transform group-hover:scale-110 group-hover:-translate-y-2">
-              <Mail className="text-primary-foreground group-hover:text-accent transition-colors duration-300" size={24} />
-            </div>
-          </a>
+          <Button
+            onClick={() => scrollToSection('projects')}
+            variant="outline"
+            size="lg"
+            className="border-neon-green text-neon-green hover:bg-neon-green hover:text-background transition-all duration-300 text-lg px-8 py-4 transform hover:scale-105 neon-glow-green"
+          >
+            View My Work
+          </Button>
         </div>
         
+        {/* Social Links */}
+        <div className="flex justify-center space-x-6 mb-16 animate-fade-in opacity-0" style={{ animationDelay: '1s' }}>
+          {[
+            { icon: Github, href: '#', color: 'neon-blue' },
+            { icon: Linkedin, href: '#', color: 'neon-purple' },
+            { icon: Mail, href: '#', color: 'neon-green' }
+          ].map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              className={`group relative p-4 rounded-full border border-${social.color}/30 bg-card/20 backdrop-blur-sm hover:bg-${social.color}/10 transition-all duration-300 transform hover:scale-110 hover:-translate-y-2`}
+            >
+              <div className={`absolute inset-0 bg-gradient-to-r from-${social.color}/10 to-${social.color}/5 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+              <social.icon className={`w-6 h-6 text-${social.color} relative z-10 group-hover:animate-pulse`} />
+            </a>
+          ))}
+        </div>
+        
+        {/* Scroll Indicator */}
         <button 
           onClick={() => scrollToSection('about')}
-          className="group animate-bounce cursor-pointer text-primary-foreground hover:text-accent transition-all duration-300 transform hover:scale-110"
+          className="animate-bounce text-muted-foreground hover:text-neon-blue transition-colors duration-300 group opacity-0 animate-fade-in" 
+          style={{ animationDelay: '1.2s' }}
         >
-          <ChevronDown size={32} className="group-hover:animate-pulse" />
+          <div className="flex flex-col items-center">
+            <span className="text-sm mb-2 group-hover:text-neon-blue transition-colors duration-300">Scroll Down</span>
+            <ChevronDown size={24} className="group-hover:animate-pulse" />
+          </div>
         </button>
       </div>
     </section>
