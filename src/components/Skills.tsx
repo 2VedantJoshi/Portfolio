@@ -26,7 +26,7 @@ const Skills = () => {
         { name: "TypeScript", icon: "🔷" },
         { name: "Next.js", icon: "▲" },
         { name: "Tailwind CSS", icon: "🎨" },
-        { name: "Framer Motion", icon: "🎭" },
+        { name: "HTML CSS", icon: "🎭" },
         { name: "Redux Toolkit", icon: "🔄" }
       ]
     },
@@ -38,7 +38,7 @@ const Skills = () => {
         { name: "Node.js", icon: "🟢" },
         { name: "Express.js", icon: "🚀" },
         { name: "Python", icon: "🐍" },
-        { name: "GraphQL", icon: "🔗" },
+        
         { name: "REST APIs", icon: "🌐" },
         { name: "Socket.io", icon: "⚡" }
       ]
@@ -51,24 +51,24 @@ const Skills = () => {
         { name: "MongoDB", icon: "🍃" },
         { name: "PostgreSQL", icon: "🐘" },
         { name: "AWS", icon: "☁️" },
-        { name: "Docker", icon: "🐳" },
-        { name: "Redis", icon: "🔴" },
-        { name: "Firebase", icon: "🔥" }
+        { name: "SupaBase", icon: "🐳" },
+        
+        { name: "FireBase", icon: "🔥" }
       ]
     },
-    tools: {
-      title: "Tools & DevOps",
-      icon: GitBranch,
-      color: "neon-blue",
-      skills: [
-        { name: "Git & GitHub", icon: "🐙" },
-        { name: "VS Code", icon: "💙" },
-        { name: "Webpack", icon: "📦" },
-        { name: "Jest", icon: "🃏" },
-        { name: "CI/CD", icon: "🔄" },
-        { name: "Figma", icon: "🎨" }
-      ]
-    }
+   tools: {
+  title: "Tools & DevOps",
+  icon: GitBranch,
+  color: "neon-blue",
+  skills: [
+    { name: "Git & GitHub", icon: "🐙" },
+    { name: "VS Code", icon: "💙" },
+    { name: "Postman", icon: "📬" },        // API testing
+    { name: "Firebase", icon: "🔥" },       // Hosting + Auth + DB
+    { name: "Figma", icon: "🎨" }
+  ]
+}
+
   };
 
   return (

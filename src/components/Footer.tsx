@@ -24,22 +24,10 @@ const Footer = () => {
             </p>
           </div>
           
-          <div className="flex justify-center space-x-6 mb-8">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                aria-label={link.label}
-                className="text-gray-400 hover:text-purple-400 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
-              >
-                <link.icon size={24} />
-              </a>
-            ))}
-          </div>
           
           <div className="border-t border-gray-800 pt-8">
             <p className="text-gray-400 flex items-center justify-center gap-2">
-              Made with <Heart size={16} className="text-red-500 animate-pulse" /> by Vedant Joshi
+              Made by Vedant Joshi
             </p>
             <p className="text-gray-500 text-sm mt-2">
               © {currentYear} All rights reserved.

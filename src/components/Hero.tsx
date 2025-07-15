@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ["Full-Stack Developer", "React Specialist", "Node.js Expert", "UI/UX Enthusiast"];
+  const roles = ["Software Developer","Full-Stack Developer", "React Specialist", "Node.js Expert", "UI/UX Enthusiast"];
   
   useEffect(() => {
     let i = 0;
@@ -33,8 +33,8 @@ const Hero = () => {
   const downloadCV = () => {
     // Create a dummy CV download - in real app, you'd have an actual CV file
     const link = document.createElement('a');
-    link.href = '#'; // Replace with actual CV URL
-    link.download = 'Vedant_Joshi_CV.pdf';
+    link.href = '/Vedant_Joshi_Resume.pdf'; // Replace with actual CV URL
+    link.download = 'Vedant_Joshi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -57,12 +57,12 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-neon-green/10 to-neon-blue/10 rounded-full blur-2xl animate-rotate-slow"></div>
       </div>
       
-      <div className="text-center z-10 px-4 max-w-5xl mx-auto">
+      <div className="text-center z-10 px-4 max-w-5xl mx-auto ">
         <div className="animate-fade-in">
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-in-left">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-slide-in-left ">
             <span className="text-foreground">Hi, I'm </span>
-            <span className="text-foreground">Vedant Joshi</span>
+            <span className="text-foreground ">Vedant Joshi</span>
           </h1>
           
           {/* Animated Role */}
@@ -104,9 +104,9 @@ const Hero = () => {
         {/* Social Links */}
         <div className="flex justify-center space-x-6 mb-16 animate-fade-in opacity-0" style={{ animationDelay: '1s' }}>
           {[
-            { icon: Github, href: '#', color: 'neon-blue' },
-            { icon: Linkedin, href: '#', color: 'neon-purple' },
-            { icon: Mail, href: '#', color: 'neon-green' }
+            { icon: Github, href: 'https://github.com/2VedantJoshi', color: 'neon-blue' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/22vedant-joshi/', color: 'neon-purple' },
+            { icon: Mail, href: 'https://mail.google.com/mail/u/0/?tab=wm#inbox?compose=CllgCJfrswBJzlsvjzbjwchDKxWwSJJNkxtHXvQdFmvLLpJzPqNcwKFnNqwWjzXFwCxJfmcZLbB', color: 'neon-green' }
           ].map((social, index) => (
             <a
               key={index}

@@ -6,16 +6,16 @@ const About = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const skills = [
-    { name: "Frontend Development", level: 95, color: "neon-blue" },
-    { name: "Backend Development", level: 88, color: "neon-purple" },
-    { name: "UI/UX Design", level: 82, color: "neon-green" },
-    { name: "DevOps & Cloud", level: 75, color: "neon-blue" },
+    { name: "Frontend Development", color: "neon-blue" },
+    { name: "Backend Development", color: "neon-purple" },
+    { name: "UI/UX Design", color: "neon-green" },
+    { name: "Database Management", color: "neon-blue" },
   ];
 
   const features = [
     {
       icon: Code2,
-      title: "Clean Code",
+      title: "Critical Thinking",
       description: "Writing maintainable, scalable code following industry best practices and modern standards.",
       color: "neon-blue"
     },
@@ -82,19 +82,17 @@ const About = () => {
               
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  With over 5 years of experience in full-stack development, I've had the privilege 
-                  of working on diverse projects ranging from startup MVPs to enterprise applications. 
-                  My journey began with curiosity about how the web works, and it has evolved into 
-                  a passion for creating digital experiences that make a difference.
+As a passionate and driven Computer Engineering student from K.K. Wagh College, my journey in tech started with a deep curiosity for how software shapes the world around us. Over the years, I've transformed that curiosity into hands-on experience by building impactful projects like an AI-based Forest Fire Prediction System, a Zerodha-inspired trading platform, and a cricket tournament auction app — all of which reflect my drive to solve real-world problems using code.
                 </p>
                 <p>
-                  I specialize in modern web technologies including React, Node.js, TypeScript, and 
-                  cloud platforms. I believe in writing clean, maintainable code and creating 
-                  intuitive user interfaces that solve real-world problems.
+I specialize in full-stack development with a focus on React, Node.js, Python, and cloud technologies. Whether it's crafting seamless user experiences or designing intelligent systems, I’m committed to writing clean, efficient code and continuously learning to stay ahead in the ever-evolving tech landscape.
+
+
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to 
-                  open-source projects, or sharing knowledge with the developer community.
+Beyond coding, I enjoy participating in hackathons, exploring emerging technologies, and sharing knowledge with peers. My goal is to create solutions that are not just functional, but meaningful.
+
+
                 </p>
               </div>
             </div>
@@ -108,13 +106,13 @@ const About = () => {
                     <span className="text-foreground font-medium group-hover:text-neon-blue transition-colors duration-300">
                       {skill.name}
                     </span>
-                    <span className={`text-${skill.color} font-bold`}>{skill.level}%</span>
+                    <span className={`text-${skill.color} font-bold`}></span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-3 overflow-hidden group-hover:h-4 transition-all duration-300">
                     <div 
                       className={`h-full bg-gradient-to-r from-${skill.color} to-${skill.color}/70 rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
                       style={{ 
-                        width: `${skill.level}%`,
+                        
                         animationDelay: `${index * 200}ms`
                       }}
                     >

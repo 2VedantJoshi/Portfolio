@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ExternalLink, Github, Star, Eye, Code, Palette, Server, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,45 +8,45 @@ const Projects = () => {
   const projects = [
     {
       title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, real-time inventory, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      description: "A full-stack e-commerce app with user authentication, product management and Includes real-time inventory updates and an admin dashboard for managing users and products.",
+      image: "https://images.unsplash.com/photo-1657812159075-7f0abd98f7b8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA0fHxlY29tbWVyY2V8ZW58MHx8MHx8fDA%3D",
       tags: ["React", "Node.js", "MongoDB", "Stripe", "Socket.io"],
-      github: "#",
-      live: "#",
+      github: "https://github.com/2VedantJoshi/Ecommerce",
+      live: "https://vcommercee.netlify.app/",
       featured: true,
       category: "Full-Stack",
       icon: Server,
       color: "neon-blue"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative project management tool with real-time updates, drag-and-drop functionality, team collaboration, and advanced analytics dashboard.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
+      title: "Trade Arena",
+      description: "A MERN stack-based stock trading simulation platform with secure JWT authentication.Users can view charts, track portfolios, and simulate trades in a dynamic dashboard.",
+      image: "https://plus.unsplash.com/premium_photo-1683141154082-324d296f3c66?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dHJhZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+      tags: ["React", "MongoDB", "Tailwind CSS", "Express"],
       github: "#",
       live: "#",
       featured: false,
-      category: "Frontend",
+      category: "MERN Stack",
       icon: Code,
       color: "neon-purple"
     },
     {
-      title: "Weather Dashboard",
-      description: "A beautiful weather application with detailed forecasts, interactive maps, location-based alerts, and historical weather data visualization.",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      tags: ["Vue.js", "API Integration", "Chart.js", "PWA"],
-      github: "#",
+      title: "Vote Count",
+      description: "A decentralized voting system with voter and candidate logins.Ensures secure, transparent, and tamper-proof elections using cryptographic techniques.",
+      image: "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dm90aW5nfGVufDB8fDB8fHww",
+      tags: ["Django", "HTML", "CSS"],
+      github: "https://github.com/2VedantJoshi/VoteCount",
       live: "#",
       featured: true,
-      category: "Frontend",
+      category: "Django",
       icon: Palette,
       color: "neon-green"
     },
     {
-      title: "Mobile Banking App",
-      description: "A secure mobile banking application with biometric authentication, real-time transactions, budget tracking, and investment portfolio management.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-      tags: ["React Native", "Node.js", "PostgreSQL", "AWS"],
+      title: "CrickBid",
+      description: "A real-time cricket auction app for players, team owners, and organizers.Supports player bidding, team management, and tournament creation with live auction flow.",
+      image: "https://plus.unsplash.com/premium_photo-1658506826316-f21670ec809e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
+      tags: ["React Native", "Node.js", "Supabase", "Expo"],
       github: "#",
       live: "#",
       featured: true,
@@ -120,23 +119,36 @@ const Projects = () => {
                 
                 {/* Action Buttons Overlay */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                  <Button
-                    size="sm"
-                    className={`bg-${project.color}/90 hover:bg-${project.color} text-background backdrop-blur-sm neon-glow-${project.color.split('-')[1]} transform hover:scale-110 transition-all duration-300`}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
-                  
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className={`border-${project.color} text-${project.color} hover:bg-${project.color} hover:text-background backdrop-blur-sm transform hover:scale-110 transition-all duration-300`}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live
-                  </Button>
-                </div>
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button
+      size="sm"
+      className={`bg-${project.color}/90 hover:bg-${project.color} text-background backdrop-blur-sm neon-glow-${project.color.split('-')[1]} transform hover:scale-110 transition-all duration-300`}
+    >
+      <Github className="w-4 h-4 mr-2" />
+      Code
+    </Button>
+  </a>
+
+  <a
+    href={project.live}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button
+      size="sm"
+      variant="outline"
+      className={`border-${project.color} text-${project.color} hover:bg-${project.color} hover:text-background backdrop-blur-sm transform hover:scale-110 transition-all duration-300`}
+    >
+      <ExternalLink className="w-4 h-4 mr-2" />
+      Live
+    </Button>
+  </a>
+</div>
+
               </div>
               
               {/* Project Content */}
@@ -177,14 +189,16 @@ const Projects = () => {
         
         {/* View More Button */}
         <div className="text-center mt-12">
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background transition-all duration-300 transform hover:scale-105 neon-glow-blue px-8 py-4"
-          >
-            View All Projects
-            <ExternalLink className="w-5 h-5 ml-2" />
-          </Button>
+          <a href="https://github.com/2VedantJoshi" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-background transition-all duration-300 transform hover:scale-105 neon-glow-blue px-8 py-4"
+            >
+              View All Projects
+              <ExternalLink className="w-5 h-5 ml-2" />
+            </Button>
+          </a>
         </div>
       </div>
     </section>

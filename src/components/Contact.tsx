@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { Send, Mail, Phone, MapPin, MessageCircle, Linkedin, Github, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,15 +18,30 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log("Form submitted:", formData);
+    try {
+      // TODO: Replace with your actual EmailJS service ID, template ID, and public key
+      const serviceID = 'service_24n9dk6';
+      const templateID = 'template_jfe1r1l';
+      const publicKey = 'LgIItSCoTAZxehsJA';
+
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        publicKey
+      );
+      alert('Message sent successfully!');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      alert('Failed to send message. Please try again later.');
+      console.error('EmailJS error:', error);
+    }
     setIsSubmitting(false);
-    
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,30 +55,30 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "john.doe@example.com",
-      href: "mailto:john.doe@example.com",
+      content: "vedantjoshi220@gmail.com",
+      href: "vedantjoshi220@gmail.com",
       color: "neon-blue"
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+1 (555) 123-4567",
+      content: "+91 75887 07109",
       href: "tel:+15551234567",
       color: "neon-purple"
     },
     {
       icon: MapPin,
       title: "Location",
-      content: "San Francisco, CA",
+      content: "Nashik, Maharastra",
       href: "#",
       color: "neon-green"
     }
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", color: "neon-blue", name: "GitHub" },
-    { icon: Linkedin, href: "#", color: "neon-purple", name: "LinkedIn" },
-    { icon: Twitter, href: "#", color: "neon-green", name: "Twitter" },
+    { icon: Github, href: "https://github.com/2VedantJoshi", color: "neon-blue", name: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/22vedant-joshi/", color: "neon-purple", name: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/VedantJoshi2004", color: "neon-green", name: "Twitter" },
   ];
 
   return (
@@ -190,9 +205,8 @@ const Contact = () => {
             
             <div className="space-y-6 mb-12">
               {contactInfo.map((info, index) => (
-                <a
+                <div
                   key={info.title}
-                  href={info.href}
                   className={`group flex items-center p-6 bg-card/30 backdrop-blur-sm rounded-2xl border border-border hover:border-${info.color}/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 card-3d`}
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
@@ -208,10 +222,10 @@ const Contact = () => {
                       {info.content}
                     </p>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
-
+          </div>
             {/* Social Links */}
             <div className="bg-card/20 backdrop-blur-sm rounded-2xl p-8 border border-border">
               <h4 className="text-xl font-semibold text-foreground mb-6 text-center">
@@ -242,7 +256,7 @@ const Contact = () => {
                 feel free to reach out via phone or connect with me on LinkedIn.
               </p>
             </div>
-          </div>
+          
         </div>
       </div>
     </section>
