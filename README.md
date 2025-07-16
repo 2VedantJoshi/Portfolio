@@ -37,7 +37,8 @@ A responsive personal portfolio website to showcase my skills, projects, and con
 ## 📫 Contact Me
 
 Email: [vedantjoshi220@gmail.com]  
-LinkedIn: ["https://www.linkedin.com/in/22vedant-joshi/]
+LinkedIn: ["https://www.linkedin.com/in/22vedant-joshi/]  
+
 GitHub: [https://github.com/2VedantJoshi]
 
 ---
